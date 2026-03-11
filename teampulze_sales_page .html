@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,30 +93,61 @@ body::after {
 }
 
 /* ─────────────────────────────────────────
-   COUNTDOWN STRIP
+   MAIN HEADER WITH COUNTDOWN
 ───────────────────────────────────────── */
-.strip {
+.main-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 500;
-  background: var(--ink2);
+  background: rgba(12,11,9,0.95);
+  backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--hairline);
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
 }
 
-.strip-text {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 56px;
+  max-width: 1600px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.countdown-label {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
+  white-space: nowrap;
 }
-.strip-text strong { color: var(--white); }
 
 .strip-timer {
   display: flex;
@@ -151,71 +183,6 @@ body::after {
   margin: 0 2px;
 }
 
-.strip-pill {
-  font-family: 'Fira Code', monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(184,145,74,0.35);
-  padding: 4px 12px;
-  border-radius: 2px;
-}
-
-/* ─────────────────────────────────────────
-   NAV
-───────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 43px; left: 0; right: 0;
-  z-index: 400;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 56px;
-  background: rgba(12,11,9,0.92);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--hairline);
-  transition: padding 0.3s;
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-mark {
-  width: 78px;
-  height: 98px;
-  object-fit: contain;
-}
-@keyframes logopulse {
-  0%,100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-.nav-links {
-  display: flex; align-items: center; gap: 40px;
-  list-style: none;
-}
-.nav-links a {
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.45);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--white); }
-
 .nav-buy {
   font-family: 'Instrument Sans', sans-serif;
   font-size: 13px;
@@ -225,16 +192,24 @@ nav {
   background: var(--white);
   padding: 10px 24px;
   border-radius: var(--r);
+  text-decoration: none;
   transition: opacity 0.2s, transform 0.2s !important;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .nav-buy:hover { opacity: 0.88 !important; transform: translateY(-1px) !important; }
+
+@keyframes logopulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
 
 /* ─────────────────────────────────────────
    HERO
 ───────────────────────────────────────── */
 .hero {
   min-height: 100vh;
-  padding: 170px 56px 100px;
+  padding: 120px 56px 100px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -473,7 +448,6 @@ nav {
   max-width: 100%;
   padding: 0;
 }
-.sect-light .sect { }
 
 .sect-warm {
   background: var(--ink3);
@@ -642,7 +616,6 @@ nav {
   align-items: start;
 }
 
-.how-steps { }
 
 .how-step {
   display: grid;
@@ -1088,7 +1061,6 @@ nav {
   font-family: 'Cormorant Garamond', serif;
 }
 
-.testi-meta { }
 .testi-stars {
   color: var(--gold);
   font-size: 13px;
@@ -1410,8 +1382,9 @@ footer {
    RESPONSIVE
 ───────────────────────────────────────── */
 @media (max-width: 980px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
+  .header-container { padding: 16px 24px; flex-wrap: wrap; justify-content: center; }
+  .header-center { order: 3; width: 100%; justify-content: center; margin-top: 12px; }
+  .countdown-label { display: none; }
   .hero { padding: 140px 24px 80px; }
   .hero-bottom { grid-template-columns: 1fr; gap: 40px; }
   .sect { padding: 80px 24px; }
@@ -1426,8 +1399,6 @@ footer {
   .final-cta-wrap { padding: 100px 24px; }
   footer { padding: 40px 24px; flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
-  .strip { padding: 8px 16px; gap: 12px; }
-  nav { top: 55px; }
 }
 </style>
 </head>
@@ -1436,35 +1407,29 @@ footer {
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- ── COUNTDOWN STRIP ── -->
-<div class="strip">
-  <span class="strip-pill">Founding Offer</span>
-  <span class="strip-text">SaaS launches at <strong>Teampulze.team</strong> in</span>
-  <div class="strip-timer">
-    <div class="s-block"><span class="s-num" id="b-days">14</span><span class="s-lbl">Days</span></div>
-    <span class="s-sep">:</span>
-    <div class="s-block"><span class="s-num" id="b-hrs">00</span><span class="s-lbl">Hrs</span></div>
-    <span class="s-sep">:</span>
-    <div class="s-block"><span class="s-num" id="b-min">00</span><span class="s-lbl">Min</span></div>
-    <span class="s-sep">:</span>
-    <div class="s-block"><span class="s-num" id="b-sec">00</span><span class="s-lbl">Sec</span></div>
-  </div>
-  <span class="strip-text">After launch: <strong>$30/mo</strong></span>
-</div>
+<!-- ── SINGLE HEADER WITH COUNTDOWN ── -->
+<nav class="main-header">
+  <div class="header-container">
+    <a class="nav-logo" href="#top">
+      <img src="/assets/images/logo (2).png" alt="Teampulze" class="logo-mark">
+      Teampulze
+    </a>
+    
+    <div class="header-center">
+      <span class="countdown-label">SaaS launches in:</span>
+      <div class="strip-timer">
+        <div class="s-block"><span class="s-num" id="b-days">14</span><span class="s-lbl">Days</span></div>
+        <span class="s-sep">:</span>
+        <div class="s-block"><span class="s-num" id="b-hrs">00</span><span class="s-lbl">Hrs</span></div>
+        <span class="s-sep">:</span>
+        <div class="s-block"><span class="s-num" id="b-min">00</span><span class="s-lbl">Min</span></div>
+        <span class="s-sep">:</span>
+        <div class="s-block"><span class="s-num" id="b-sec">00</span><span class="s-lbl">Sec</span></div>
+      </div>
+    </div>
 
-<!-- ── NAV ── -->
-<nav>
-  <a class="nav-logo" href="#top">
-    <img src="/assets/images/logo (2).png" alt="Teampulze" class="logo-mark">
-    Teampulze
-  </a>
-  <ul class="nav-links">
-    <li><a href="#story">The Problem</a></li>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#launch">SaaS Launch</a></li>
-    <li><a href="#faq">Questions</a></li>
-    <li><a href="#buy" class="nav-buy">Get Lifetime Access →</a></li>
-  </ul>
+    <a href="GUMROAD_LINK_HERE" class="nav-buy">Get Lifetime Access →</a>
+  </div>
 </nav>
 
 <!-- ══════════════════════════════════════
@@ -1511,7 +1476,7 @@ footer {
         After launch: <strong>$30/month = $360/year</strong>.<br>
         This price is gone the day it goes live.
       </div>
-      <a href="#" class="btn-cta">
+      <a href="GUMROAD_LINK_HERE" class="btn-cta">
         Get Lifetime Access — $250
         <span class="btn-cta-arr">→</span>
       </a>
@@ -1779,7 +1744,7 @@ footer {
         <div class="math-row win"><span>You — founding customer</span><span class="val">$250 · done</span></div>
       </div>
 
-      <a href="#buy" class="btn-cta" style="max-width:420px;margin:0 auto;">
+      <a href="GUMROAD_LINK_HERE" class="btn-cta" style="max-width:420px;margin:0 auto;">
         Lock In Lifetime Access — $250
         <span class="btn-cta-arr">→</span>
       </a>
@@ -1956,7 +1921,7 @@ footer {
   </div>
 
   <div class="final-btn-wrap reveal">
-    <a href="#" class="btn-cta-final">
+    <a href="GUMROAD_LINK_HERE" class="btn-cta-final">
       ⚡ Get Lifetime Access Now — $250 USD
     </a>
   </div>
