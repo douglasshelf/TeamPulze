@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -265,68 +264,50 @@ body::after {
   color: rgba(255,255,255,0.4);
 }
 
-/* ── HERO TOP: headline + video side by side ── */
+/* ── HERO TOP: headline + features side by side ── */
 .hero-top {
   display: flex;
-  align-items: center;
-  gap: 56px;
+  align-items: flex-start;
+  gap: 100px;
   margin-bottom: 0;
 }
 
 .hero-top .hero-headline {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 1 auto;
+  max-width: 750px;
 }
 
-.hero-video-wrap {
-  flex: 0 0 480px;
+.hero-features-wrap {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
+  margin-top: 12px;
 }
 
-.hero-video-inner {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--r2);
-  overflow: hidden;
-  border: 1px solid var(--hairline2);
-  box-shadow: 0 32px 80px rgba(0,0,0,0.55);
-  background: #000;
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-/* subtle electric top-border accent */
-.hero-video-inner::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--electric) 50%, transparent 100%);
-  z-index: 1;
+.hf-icon {
+  font-size: 16px;
+  color: var(--electric);
+  flex-shrink: 0;
 }
 
-.hero-video-inner iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.hero-video-caption {
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.25);
-  text-align: center;
+.hf-text {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
 }
 
 .hero-bottom {
   margin-top: 56px;
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  gap: 60px;
-  align-items: end;
+  max-width: 640px;
   opacity: 0;
   animation: revealUp 1s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
 }
@@ -481,6 +462,56 @@ body::after {
 @keyframes revealUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────
+   VIDEO SECTION (after hero)
+───────────────────────────────────────── */
+.video-sect {
+  padding: 100px 56px;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r2);
+  overflow: hidden;
+  border: 1px solid var(--hairline2);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+  background: #000;
+  margin-bottom: 16px;
+}
+
+.video-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--electric) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.video-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-caption {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.3);
 }
 
 /* ─────────────────────────────────────────
@@ -814,6 +845,40 @@ body::after {
 .t-badge.g { background: rgba(26,122,74,0.2); color: #4dca82; }
 .t-badge.y { background: rgba(180,130,0,0.2); color: #f0c040; }
 .t-badge.r { background: rgba(192,57,43,0.2); color: #f07060; }
+
+/* ─────────────────────────────────────────
+   TEAM SECTION
+───────────────────────────────────────── */
+.team-sect {
+  padding: 100px 56px;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-img-wrap {
+  max-width: 800px;
+  margin: 0 auto 32px;
+  border-radius: var(--r2);
+  overflow: hidden;
+  border: 1px solid var(--hairline2);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+}
+
+.team-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.team-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 /* ─────────────────────────────────────────
    FEATURES
@@ -1437,13 +1502,163 @@ footer {
 /* ─────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────── */
+/* ─────────────────────────────────────────
+   MODAL
+───────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+
+.modal-box {
+  background: var(--ink2);
+  border: 1px solid var(--hairline2);
+  border-radius: var(--r2);
+  max-width: 500px;
+  width: 100%;
+  padding: 48px 44px;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
+.modal-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--electric), transparent);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: rgba(255,255,255,0.8); }
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.modal-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.form-input {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 15px;
+  color: var(--white);
+  transition: all 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--electric);
+  background: rgba(0,98,255,0.05);
+}
+.form-input::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+.form-notice {
+  background: rgba(0,98,255,0.06);
+  border: 1px solid rgba(0,98,255,0.2);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.form-notice-icon {
+  color: var(--electric);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-submit {
+  background: var(--electric);
+  color: #fff;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  padding: 16px 32px;
+  border-radius: var(--r);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,98,255,0.4);
+}
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 @media (max-width: 980px) {
   .header-container { padding: 16px 24px; flex-wrap: wrap; justify-content: center; }
   .header-center { order: 3; width: 100%; justify-content: center; margin-top: 12px; }
   .countdown-label { display: none; }
   .hero { padding: 140px 24px 80px; }
   .hero-top { flex-direction: column; gap: 32px; }
-  .hero-video-wrap { flex: 0 0 auto; width: 100%; }
+  .hero-features-wrap { flex: 0 0 auto; width: 100%; }
   .hero-bottom { grid-template-columns: 1fr; gap: 40px; }
   .sect { padding: 80px 24px; }
   .story-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1486,7 +1701,7 @@ footer {
       </div>
     </div>
 
-    <a href="https://bot4orgeaisolutions.gumroad.com/l/Teampulze" class="nav-buy">Get Lifetime Access →</a>
+    <a href="#" class="nav-buy">Start 14-Day Free Trial →</a>
   </div>
 </nav>
 
@@ -1506,17 +1721,23 @@ footer {
       as understanding you.
     </h1>
 
-    <div class="hero-video-wrap">
-      <div class="hero-video-inner">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/a-K3GScR9eQ?rel=0&modestbranding=1"
-          title="Teampulze — See how it works"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+    <div class="hero-features-wrap">
+      <div class="hero-feature-item">
+        <span class="hf-icon">◆</span>
+        <span class="hf-text">Smart Comprehension Tests</span>
       </div>
-      <p class="hero-video-caption">See how Teampulze works in under 60 seconds</p>
+      <div class="hero-feature-item">
+        <span class="hf-icon">✓</span>
+        <span class="hf-text">Action Items Tracker</span>
+      </div>
+      <div class="hero-feature-item">
+        <span class="hf-icon">▣</span>
+        <span class="hf-text">Lifetime Roadmap</span>
+      </div>
+      <div class="hero-feature-item">
+        <span class="hf-icon">◉</span>
+        <span class="hf-text">Personalised Revision Sheets</span>
+      </div>
     </div>
   </div>
 
@@ -1527,7 +1748,6 @@ footer {
         <strong>personalised comprehension tests for every team member</strong>
         — so you know, before a single task begins, exactly who understood
         the brief and who will cost you three days of rework.
-        The SaaS launches in 30 days. <strong>Today, you can own it for life.</strong>
       </p>
       <div class="hero-proof-row">
         <div class="proof-chip"><span class="dot">●</span> No app download</div>
@@ -1536,25 +1756,28 @@ footer {
         <div class="proof-chip"><span class="dot">●</span> SaaS access on launch day</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="hero-price-unit" id="buy">
-      <div class="hpu-label">Founding Lifetime Price</div>
-      <div class="hpu-price-row">
-        <span class="hpu-was">$30/month</span>
-        <div class="hpu-now"><sup>$</sup>250</div>
-      </div>
-      <div class="hpu-period">One payment. No renewal. Ever.</div>
-      <div class="urgency-strip">
-        ⚠ SaaS launches at <strong>Teampulze.team</strong> in 30 days.<br>
-        After launch: <strong>$30/month = $360/year</strong>.<br>
-        This price is gone the day it goes live.
-      </div>
-      <a href="GUMROAD_LINK_HERE" class="btn-cta">
-        Get Lifetime Access — $250
-        <span class="btn-cta-arr">→</span>
-      </a>
-      <p class="hpu-microcopy">Instant delivery · HTML file + setup guide · SaaS access included</p>
+<div class="rule"></div>
+
+<!-- ══════════════════════════════════════
+     VIDEO SECTION
+══════════════════════════════════════ -->
+<section class="video-sect reveal">
+  <div class="kicker" style="justify-content:center;">See How It Works</div>
+  <h2 class="h2" style="text-align:center;margin:0 auto 48px;">Watch Teampulze in action</h2>
+  <div class="video-container">
+    <div class="video-inner">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/a-K3GScR9eQ?rel=0&modestbranding=1"
+        title="Teampulze — See how it works"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="video-caption">See how Teampulze works in under 60 seconds</p>
   </div>
 </section>
 
@@ -1598,6 +1821,39 @@ footer {
 <div class="rule"></div>
 
 <!-- ══════════════════════════════════════
+     PRICING
+══════════════════════════════════════ -->
+<div id="buy">
+  <div class="sect" style="padding:100px 56px;">
+    <div style="max-width:600px;margin:0 auto;">
+      <div class="kicker reveal" style="justify-content:center;">Founding Offer</div>
+      <h2 class="h2 reveal" style="text-align:center;margin:0 auto 32px;">Own it for life.<br><span>$250.</span> Before the SaaS launches.</h2>
+      
+      <div class="hero-price-unit reveal">
+        <div class="hpu-label">Founding Lifetime Price</div>
+        <div class="hpu-price-row">
+          <span class="hpu-was">$30/month</span>
+          <div class="hpu-now"><sup>$</sup>250</div>
+        </div>
+        <div class="hpu-period">One payment. No renewal. Ever.</div>
+        <div class="urgency-strip">
+          ▲ SaaS launches at <strong>Teampulze.team</strong> in 30 days.<br>
+          After launch: <strong>$30/month = $360/year</strong>.<br>
+          This price is gone the day it goes live.
+        </div>
+        <a href="#" class="btn-cta">
+          Start Your 14-Day Free Trial
+          <span class="btn-cta-arr">→</span>
+        </a>
+        <p class="hpu-microcopy">Instant delivery · HTML file + setup guide · SaaS access included</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ══════════════════════════════════════
      THE PROBLEM
 ══════════════════════════════════════ -->
 <div class="sect-light">
@@ -1609,19 +1865,19 @@ footer {
     <div class="problem-list reveal">
       <div class="problem-item">
         <span class="pi-number">01</span>
-        <span class="pi-icon">🔄</span>
+        <span class="pi-icon">↻</span>
         <div class="pi-title">Work executed in the wrong direction</div>
         <p class="pi-body">The team acts on what they thought they heard. Days of effort go directly into the bin. You don't discover this until the deadline is already breathing down your neck.</p>
       </div>
       <div class="problem-item">
         <span class="pi-number">02</span>
-        <span class="pi-icon">👻</span>
+        <span class="pi-icon">◇</span>
         <div class="pi-title">Critical tasks nobody genuinely owned</div>
         <p class="pi-body">It was in the notes. It was "assigned." But nobody confirmed it, nobody felt true ownership, and now it's overdue — and your client is already asking questions.</p>
       </div>
       <div class="problem-item">
         <span class="pi-number">03</span>
-        <span class="pi-icon">🔥</span>
+        <span class="pi-icon">▲</span>
         <div class="pi-title">Trust eroding in slow motion</div>
         <p class="pi-body">Repeated rework cycles breed blame. Your best people start second-guessing themselves. The damage to team cohesion compounds long after the project is forgotten.</p>
       </div>
@@ -1712,6 +1968,20 @@ footer {
 <div class="rule"></div>
 
 <!-- ══════════════════════════════════════
+     MEET THE TEAM
+══════════════════════════════════════ -->
+<section class="team-sect reveal">
+  <div class="kicker" style="justify-content:center;">The Team</div>
+  <h2 class="h2" style="text-align:center;margin:0 auto 48px;">Meet the people<br>behind <span>Teampulze</span></h2>
+  <div class="team-img-wrap">
+    <img src="assets/images/unTcP (2).jpg.jpeg" alt="BOT4ORGE AI Team">
+  </div>
+  <p class="team-caption">The BOT4ORGE AI team — building tools that fix what meetings break</p>
+</section>
+
+<div class="rule"></div>
+
+<!-- ══════════════════════════════════════
      FEATURES
 ══════════════════════════════════════ -->
 <div class="sect-warm">
@@ -1723,25 +1993,25 @@ footer {
     <div class="features-grid reveal">
       <div class="feat">
         <div class="feat-num">Feature One</div>
-        <span class="feat-icon">🧠</span>
+        <span class="feat-icon">◆</span>
         <div class="feat-title">Smart Comprehension Tests</div>
         <p class="feat-body">The AI reads who was assigned what and builds individual question sets per person. Not one-size-fits-all. Genuinely personalised to the task, deadline, and individual responsibility written in your notes.</p>
       </div>
       <div class="feat">
         <div class="feat-num">Feature Two</div>
-        <span class="feat-icon">✅</span>
+        <span class="feat-icon">✓</span>
         <div class="feat-title">Action Items Tracker</div>
         <p class="feat-body">Every task automatically extracted from the meeting and assigned to the right person, with a live status dashboard the entire team can update. No more manually transcribing action lists after every call.</p>
       </div>
       <div class="feat">
         <div class="feat-num">Feature Three</div>
-        <span class="feat-icon">🗺️</span>
+        <span class="feat-icon">▣</span>
         <div class="feat-title">Lifetime Roadmap</div>
         <p class="feat-body">A persistent view of every session ever run — every decision made, every task assigned, every person's comprehension score over time. One glance answers: how far have we actually come?</p>
       </div>
       <div class="feat">
         <div class="feat-num">Feature Four</div>
-        <span class="feat-icon">📖</span>
+        <span class="feat-icon">◉</span>
         <div class="feat-title">Personalised Revision Sheets</div>
         <p class="feat-body">When someone scores below threshold, they receive a targeted document showing exactly what was decided and what they need to understand before starting. Accountability without confrontation.</p>
       </div>
@@ -1817,8 +2087,8 @@ footer {
         <div class="math-row win"><span>You — founding customer</span><span class="val">$250 · done</span></div>
       </div>
 
-      <a href="https://bot4orgeaisolutions.gumroad.com/l/Teampulze" class="btn-cta" style="max-width:420px;margin:0 auto;">
-        Lock In Lifetime Access — $250
+      <a href="#" class="btn-cta" style="max-width:420px;margin:0 auto;">
+        Start Your 14-Day Free Trial
         <span class="btn-cta-arr">→</span>
       </a>
     </div>
@@ -1837,32 +2107,32 @@ footer {
 
     <div class="audience-grid reveal">
       <div class="aud-card">
-        <span class="aud-icon">🏢</span>
+        <span class="aud-icon">■</span>
         <div class="aud-title">Business Owners & Directors</div>
         <p class="aud-body">Running a team where one misread brief costs you days of rework and a strained client relationship. Teampulze closes that gap before it opens.</p>
       </div>
       <div class="aud-card">
-        <span class="aud-icon">🎯</span>
+        <span class="aud-icon">◉</span>
         <div class="aud-title">Agencies & Creative Studios</div>
         <p class="aud-body">Briefing freelancers and contractors across concurrent projects. When a contractor misunderstands on day one, you absorb that cost — not them.</p>
       </div>
       <div class="aud-card">
-        <span class="aud-icon">📋</span>
+        <span class="aud-icon">▢</span>
         <div class="aud-title">Project & Operations Managers</div>
         <p class="aud-body">Coordinating multiple deliverables and dependencies where a single misunderstood instruction cascades into missed milestones. This is your pre-execution sanity check.</p>
       </div>
       <div class="aud-card">
-        <span class="aud-icon">🚀</span>
+        <span class="aud-icon">▲</span>
         <div class="aud-title">Startups & Fast-Moving Teams</div>
         <p class="aud-body">Moving at pace with a lean crew where one misunderstanding derails a week of progress. At startup speed, that's the difference between shipping and stalling.</p>
       </div>
       <div class="aud-card">
-        <span class="aud-icon">📚</span>
+        <span class="aud-icon">◆</span>
         <div class="aud-title">Training & L&D Teams</div>
         <p class="aud-body">Running onboarding or compliance sessions where comprehension actually matters. Stop guessing whether the training landed. Know for certain, in real time.</p>
       </div>
       <div class="aud-card">
-        <span class="aud-icon">🌍</span>
+        <span class="aud-icon">●</span>
         <div class="aud-title">Remote & Distributed Teams</div>
         <p class="aud-body">Briefing people across time zones where follow-up questions don't happen immediately. The private link format means every team member checks in on their own schedule.</p>
       </div>
@@ -1958,7 +2228,7 @@ footer {
     <div class="kicker reveal" style="justify-content:center;">Our Commitment</div>
     <h2 class="h2 reveal" style="max-width:600px;margin:0 auto 48px;">We built something<br>that works. <em>Full stop.</em></h2>
     <div class="guarantee-strip reveal">
-      <div class="guarantee-icon">🛡️</div>
+      <div class="guarantee-icon">◈</div>
       <div>
         <div class="guarantee-title">You get the tool. It works. Or we make it right.</div>
         <p class="guarantee-body">Teampulze is a working product. Open the file, enter your API key, paste your first meeting notes — you will have your first comprehension assessment in under 30 seconds. If the tool does not work as described on your device, <strong>contact us and we will personally troubleshoot with you until it does.</strong> We do not hide behind a refund policy. We make the product work.</p>
@@ -1988,14 +2258,14 @@ footer {
   </div>
 
   <div class="final-warning-bar reveal">
-    ⚠ After launch, this price is gone permanently.<br>
+    ▲ After launch, this price is gone permanently.<br>
     <strong>$30/month × 12 = $360/yr · × 5 years = $1,800.</strong><br>
     You are paying <strong>$250. Once. Never again.</strong>
   </div>
 
   <div class="final-btn-wrap reveal">
-    <a href="https://bot4orgeaisolutions.gumroad.com/l/Teampulze" class="btn-cta-final">
-      ⚡ Get Lifetime Access Now — $250 USD
+    <a href="#" class="btn-cta-final">
+      Start Your 14-Day Free Trial
     </a>
   </div>
   <p class="final-micro reveal">Instant delivery · HTML file + API setup guide · Full SaaS access on launch day</p>
@@ -2008,6 +2278,43 @@ footer {
     <div class="fc-item"><span class="ck">✓</span> Works in any browser — zero setup or onboarding</div>
     <div class="fc-item"><span class="ck">✓</span> Full SaaS cloud access at Teampulze.team on launch day</div>
     <div class="fc-item"><span class="ck">✓</span> Grandfathered for life — $30/month becomes $0 for you</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MODAL
+══════════════════════════════════════ -->
+<div class="modal-overlay" id="trialModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">×</button>
+    <h3 class="modal-title">Start Your 14-Day Free Trial</h3>
+    <p class="modal-desc">Join our community and get instant access to Teampulze. We'll send you the setup guide and your first session template.</p>
+    
+    <form class="modal-form" id="trialForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="59d155d3-aa95-48ab-aa3a-b89fa50ecd99">
+      
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-input" 
+          placeholder="your.email@company.com"
+          required
+        >
+      </div>
+      
+      <div class="form-notice">
+        <span class="form-notice-icon">●</span>
+        <span>By submitting, you'll be redirected to our private Facebook community where you can connect with other Teampulze users and access exclusive resources.</span>
+      </div>
+      
+      <button type="submit" class="form-submit" id="submitBtn">
+        Join Community & Start Trial
+        <span>→</span>
+      </button>
+    </form>
   </div>
 </div>
 
@@ -2080,6 +2387,81 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── MODAL & FORM ── */
+const modal = document.getElementById('trialModal');
+const modalClose = document.getElementById('modalClose');
+const trialForm = document.getElementById('trialForm');
+const submitBtn = document.getElementById('submitBtn');
+
+// Your Facebook community URL
+const FACEBOOK_COMMUNITY_URL = 'https://web.facebook.com/share/g/1BB9zTbJSp/';
+
+// Open modal when any CTA is clicked
+document.querySelectorAll('.btn-cta, .btn-cta-final, .nav-buy').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Close modal
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+});
+
+// Handle form submission
+trialForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value;
+  
+  // Disable submit button
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Processing...';
+  
+  try {
+    // Submit to Web3Forms
+    const formData = new FormData(trialForm);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      console.log('Email submitted successfully:', email);
+      
+      // Store email in localStorage as backup
+      try {
+        localStorage.setItem('teampulze_email', email);
+      } catch(e) {}
+      
+      // Redirect to Facebook community
+      window.location.href = FACEBOOK_COMMUNITY_URL;
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Join Community & Start Trial<span>→</span>';
+    alert('Something went wrong. Please try again.');
+  }
+});
+
 </script>
 </body>
 </html>
