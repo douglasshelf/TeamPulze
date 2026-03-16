@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Instrument+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0c0b09;--ink2:#141210;--ink3:#1c1a17;--white:#faf9f6;--electric:#0062ff;--gold:#b8914a;--green:#1a7a4a;--hairline:rgba(255,255,255,0.07);--hairline2:rgba(255,255,255,0.12);--fs-hero:clamp(58px,8vw,128px);--fs-h2:clamp(38px,4.5vw,72px);--lh-tight:1.06;--lh-head:1.12;--lh-body:1.78;--r:10px;--r2:18px}
+:root{--ink:#0c0b09;--ink2:#141210;--ink3:#1c1a17;--white:#faf9f6;--electric:#0062ff;--gold:#b8914a;--green:#1a7a4a;--hairline:rgba(255,255,255,0.07);--hairline2:rgba(255,255,255,0.12);--fs-hero:clamp(52px,5vw,80px);--fs-h2:clamp(38px,4.5vw,72px);--lh-tight:1.06;--lh-head:1.12;--lh-body:1.78;--r:10px;--r2:18px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--ink);color:var(--white);font-family:'Instrument Sans',sans-serif;font-size:18px;line-height:var(--lh-body);overflow-x:hidden;cursor:none}
@@ -21,20 +21,20 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .header-tagline{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,0.4);text-transform:uppercase;white-space:nowrap}
 .nav-buy{font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink)!important;background:var(--white);padding:10px 24px;border-radius:var(--r);text-decoration:none;transition:opacity .2s,transform .2s!important;white-space:nowrap;flex-shrink:0}
 .nav-buy:hover{opacity:.88!important;transform:translateY(-1px)!important}
-.hero{min-height:100vh;padding:120px 56px 100px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero{min-height:100vh;padding:120px 80px 80px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
 .hero::before{content:'';position:absolute;top:-20%;right:-10%;width:60vw;height:60vw;background:radial-gradient(ellipse at center,rgba(0,98,255,0.07) 0%,rgba(0,98,255,0.03) 35%,transparent 70%);pointer-events:none}
 .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px;opacity:0;animation:revealUp .9s .1s cubic-bezier(.16,1,.3,1) forwards}
 .eyebrow-line{width:32px;height:1px;background:var(--electric)}
 .eyebrow-text{font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--electric)}
 .hero-headline{font-family:'Cormorant Garamond',serif;font-size:var(--fs-hero);font-weight:700;line-height:var(--lh-tight);letter-spacing:-.02em;max-width:1100px;opacity:0;animation:revealUp 1s .2s cubic-bezier(.16,1,.3,1) forwards}
 .hero-headline em{font-style:italic;color:rgba(255,255,255,0.4)}
-.hero-top{display:flex;align-items:flex-start;gap:100px;margin-bottom:0}
-.hero-top .hero-headline{flex:0 1 auto;max-width:750px}
-.hero-features-wrap{flex:0 0 auto;display:flex;flex-direction:column;gap:24px;margin-top:12px}
-.hero-feature-item{display:flex;align-items:center;gap:14px}
-.hf-icon{font-size:16px;color:var(--electric);flex-shrink:0}
-.hf-text{font-family:'Instrument Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,255,255,0.8);line-height:1.5}
-.hero-bottom{margin-top:56px;max-width:640px;opacity:0;animation:revealUp 1s .35s cubic-bezier(.16,1,.3,1) forwards}
+.hero-top{display:flex;align-items:center;gap:80px;margin-bottom:0}
+.hero-top .hero-headline{flex:0 0 55%;min-width:0}
+.hero-features-wrap{flex:1 1 auto;max-width:340px;display:flex;flex-direction:column;justify-content:center;gap:24px;margin-top:0;padding:32px 0 32px 40px;border-left:1px solid var(--hairline);align-self:stretch}
+.hero-feature-item{display:flex;align-items:center;gap:12px}
+.hf-icon{font-size:18px;color:var(--electric);flex-shrink:0}
+.hf-text{font-family:'Instrument Sans',sans-serif;font-size:17px;font-weight:500;color:rgba(255,255,255,0.75);line-height:1.4}
+.hero-bottom{margin-top:48px;max-width:560px;opacity:0;animation:revealUp 1s .35s cubic-bezier(.16,1,.3,1) forwards}
 .hero-body-copy{font-family:'Instrument Sans',sans-serif;font-size:19px;line-height:1.72;color:rgba(255,255,255,0.52);max-width:540px;padding-bottom:8px}
 .hero-body-copy strong{color:rgba(255,255,255,0.85);font-weight:500}
 .hero-proof-row{margin-top:24px;display:flex;gap:20px;flex-wrap:wrap}
@@ -235,7 +235,7 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
 @media(max-width:980px){
   .header-container{padding:16px 24px;flex-wrap:wrap;justify-content:center}
   .hero{padding:140px 24px 80px}
-  .hero-top{flex-direction:column;gap:32px}
+  .hero-top{flex-direction:column;gap:32px}.hero-features-wrap{flex:0 0 auto;width:100%;padding-left:0;border-left:none;border-top:1px solid var(--hairline);padding-top:24px;flex-direction:row;flex-wrap:wrap;gap:16px}.hero-feature-item{flex:0 0 calc(50% - 8px)}
   .sect{padding:80px 24px}
   .story-grid,.problem-list,.vs-grid,.how-grid,.features-grid,.audience-grid,.pricing-grid{grid-template-columns:1fr}
   .vs-sep{display:none}
