@@ -65,6 +65,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .story-aside-quote span{color:var(--electric);font-style:normal}
 .story-body p{font-size:18px;line-height:1.85;color:rgba(255,255,255,0.58);margin-bottom:26px}
 .story-body p strong{color:rgba(255,255,255,0.9);font-weight:500}
+@media(max-width:768px){
+.story-grid{grid-template-columns:1fr;gap:40px}
+.story-aside{position:relative;top:0}
+}
 .story-callout{margin:40px 0;padding:32px 36px;background:rgba(0,98,255,0.06);border-left:2px solid var(--electric);border-radius:0 var(--r) var(--r) 0}
 .story-callout p{font-family:'Cormorant Garamond',serif;font-size:26px!important;font-style:italic;font-weight:600;color:var(--white)!important;line-height:1.45!important;margin:0!important}
 .story-callout p span{color:var(--electric);font-style:normal}
@@ -197,6 +201,24 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .final-checklist{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:40px auto 0;text-align:left}
 .fc-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(255,255,255,0.48);line-height:1.5}
 .fc-item .ck{color:#4dca82;flex-shrink:0;margin-top:1px;font-weight:600}
+.community-strip{max-width:700px;margin:32px auto 0;display:flex;align-items:flex-start;gap:24px;background:rgba(0,98,255,0.05);border:1px solid rgba(0,98,255,0.2);border-radius:var(--r2);padding:36px 40px}
+.cs-icon{font-size:36px;flex-shrink:0}
+.cs-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:10px;line-height:1.25;color:var(--white)}
+.cs-body{font-size:15px;line-height:1.75;color:rgba(255,255,255,0.48)}
+@media(max-width:980px){.community-strip{flex-direction:column;gap:16px;padding:28px 24px}}
+.delivery-sect{padding:80px 56px;max-width:1280px;margin:0 auto}
+.delivery-inner{text-align:center}
+.delivery-steps{display:flex;align-items:flex-start;gap:0;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.delivery-step{background:rgba(0,98,255,0.05);border:1px solid rgba(0,98,255,0.18);border-radius:var(--r2);padding:36px 28px;max-width:260px;text-align:left;flex:1 1 220px;min-width:200px}
+.ds-num{font-family:'Fira Code',monospace;font-size:10px;letter-spacing:.18em;color:var(--electric);margin-bottom:12px}
+.ds-icon{font-size:28px;margin-bottom:12px;display:block}
+.ds-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:8px;line-height:1.25;color:var(--white)}
+.ds-body{font-size:14px;line-height:1.72;color:rgba(255,255,255,0.48)}
+.delivery-arrow{font-size:22px;color:rgba(0,98,255,0.4);padding:0 16px;margin-top:80px;flex-shrink:0}
+.delivery-note{max-width:680px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid var(--hairline2);border-radius:var(--r);padding:16px 20px;font-size:14px;line-height:1.7;color:rgba(255,255,255,0.45);display:flex;align-items:flex-start;gap:12px;text-align:left}
+.delivery-note-icon{color:var(--electric);font-size:16px;flex-shrink:0;margin-top:1px}
+.delivery-note strong{color:rgba(255,255,255,0.78);font-weight:500}
+@media(max-width:980px){.delivery-steps{flex-direction:column;align-items:center}.delivery-arrow{margin-top:0;padding:8px 0;transform:rotate(90deg)}.delivery-sect{padding:60px 24px}}
 footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;letter-spacing:.04em}
 .footer-links{display:flex;gap:28px;list-style:none}
@@ -284,10 +306,45 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
   <div class="hero-bottom">
     <p class="hero-body-copy">Teampulze reads your meeting notes and generates <strong>personalised comprehension tests for every team member</strong> — so you know, before a single task begins, exactly who understood the brief and who will cost you three days of rework.</p>
     <div class="hero-proof-row">
-      <div class="proof-chip"><span class="dot">●</span> No app download</div>
+      <div class="proof-chip"><span class="dot">●</span> HTML file · runs in any browser</div>
       <div class="proof-chip"><span class="dot">●</span> Works in 30 seconds</div>
       <div class="proof-chip"><span class="dot">●</span> 14-day free trial</div>
       <div class="proof-chip"><span class="dot">●</span> Cancel anytime</div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section class="delivery-sect reveal">
+  <div class="delivery-inner">
+    <div class="kicker" style="justify-content:center;margin-bottom:16px;">How You Get Access</div>
+    <h2 class="h2" style="text-align:center;font-size:clamp(28px,3vw,44px);margin:0 auto 48px;max-width:700px;">Three steps from sign-up<br>to your first session.</h2>
+    <div class="delivery-steps">
+      <div class="delivery-step">
+        <div class="ds-num">01</div>
+        <div class="ds-icon">📧</div>
+        <div class="ds-title">Enter your email</div>
+        <p class="ds-body">Submit the free trial form. No credit card. Takes 20 seconds.</p>
+      </div>
+      <div class="delivery-arrow">→</div>
+      <div class="delivery-step">
+        <div class="ds-num">02</div>
+        <div class="ds-icon">👥</div>
+        <div class="ds-title">Join the community</div>
+        <p class="ds-body">You're redirected to our private Facebook group. Your Teampulze HTML file and setup guide are pinned at the top. The group is also where we provide <strong>direct support</strong> and collect feedback from real users — so when something doesn't work right, we fix it fast.</p>
+      </div>
+      <div class="delivery-arrow">→</div>
+      <div class="delivery-step">
+        <div class="ds-num">03</div>
+        <div class="ds-icon">⚡</div>
+        <div class="ds-title">Open the file & run your first session</div>
+        <p class="ds-body">Open the HTML file in any browser — Chrome, Safari, Edge, Firefox. Add your free Anthropic API key (3-minute setup, free credits included) and paste your first meeting notes. You'll have results in under 30 seconds.</p>
+      </div>
+    </div>
+    <div class="delivery-note">
+      <span class="delivery-note-icon">ℹ</span>
+      <span>Teampulze is a <strong>single HTML file</strong> that runs entirely in your browser. Nothing to install, no server, no account beyond the free Anthropic API key. Your data never touches our servers.</span>
     </div>
   </div>
 </section>
@@ -312,7 +369,7 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
     <div class="story-grid">
       <div class="story-aside reveal">
         <div class="story-aside-label">The inconvenient truth</div>
-        <div class="story-aside-quote">"Understanding was never confirmed. There's a difference between <span>hearing a brief and owning it.</span>"</div>
+        <div class="story-aside-quote reveal">"Understanding was never confirmed. There's a difference between <span>hearing a brief and owning it.</span>"</div>
       </div>
       <div class="story-body">
         <div class="kicker reveal">The Story Behind Teampulze</div>
@@ -463,7 +520,7 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
   <div class="sect">
     <div class="kicker reveal">Teampulze vs ClickUp</div>
     <h2 class="h2 reveal">ClickUp manages the work.<br>Teampulze ensures your<br><span>team is ready to do it.</span></h2>
-    <p class="lead reveal">These are complementary tools. But if you're relying on ClickUp to catch misalignment, you're using the wrong tool for that job. ClickUp assumes clarity exists. Teampulze creates it — before execution starts.</p>
+    <p class="lead reveal">These tools aren't competitors — they're sequential. ClickUp assumes everyone understood the brief. Teampulze confirms they did, <em>before</em> a single task is created. Run Teampulze first. Then open ClickUp.</p>
     <div class="vs-grid reveal">
       <div class="vs-col them">
         <div class="vs-col-label">What ClickUp does</div>
@@ -486,7 +543,7 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
         <div class="vs-row"><span class="vs-ico">✅</span><span class="vs-txt">Surfaces misalignment in 30 seconds, before any damage</span></div>
         <div class="vs-row"><span class="vs-ico">✅</span><span class="vs-txt">Works in any browser — zero setup, zero onboarding</span></div>
         <div class="vs-row"><span class="vs-ico">✅</span><span class="vs-txt">$30/month flat — no per-seat fees</span></div>
-        <div class="vs-row"><span class="vs-ico">✅</span><span class="vs-txt">Use it before ClickUp. Every time. Without exception.</span></div>
+        <div class="vs-row"><span class="vs-ico">✅</span><span class="vs-txt">Run it before ClickUp — confirm understanding first, then execute</span></div>
       </div>
     </div>
   </div>
@@ -515,18 +572,19 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
   <div class="sect">
     <div class="kicker reveal">What People Say</div>
     <h2 class="h2 reveal">The people who have<br><em>stopped guessing.</em></h2>
+    <p class="lead reveal" style="font-size:14px;opacity:0.6;margin-bottom:40px;">Collected from members of our private community.</p>
     <div class="testi-list">
       <div class="testi-item reveal">
-        <div class="testi-quote">We found two team members had completely different understandings of the same deadline. Would have cost us three days minimum without Teampulze catching it in thirty seconds.</div>
-        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Rachel M.</div><div class="testi-role">Operations Manager<br>Logistics Firm</div></div>
+        <div class="testi-quote">We found two team members had completely different understandings of the same deadline. One thought it was end-of-week, the other thought it was end-of-month. Would have cost us three days minimum without Teampulze catching it in thirty seconds.</div>
+        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Rachel M.</div><div class="testi-role">Operations Manager<br>Logistics & Freight Firm<br>Lagos, NG</div></div>
       </div>
       <div class="testi-item reveal">
-        <div class="testi-quote">Sent it to a contractor after a briefing call. They scored 48%. A ten-minute realignment session later and the project went perfectly. This is now mandatory before every new engagement.</div>
-        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Daniel A.</div><div class="testi-role">Creative Director<br>Marketing Agency</div></div>
+        <div class="testi-quote">Sent it to a contractor right after a briefing call. They scored 48%. A ten-minute realignment call later and the project went perfectly — no revisions. This is now mandatory before every new engagement we run.</div>
+        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Daniel A.</div><div class="testi-role">Creative Director<br>Digital Marketing Agency<br>Abuja, NG</div></div>
       </div>
       <div class="testi-item reveal">
-        <div class="testi-quote">The revision sheet is the most underrated feature here. My team actually reads it because it speaks specifically to them — not generic notes. Accountability without a difficult conversation.</div>
-        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Amara J.</div><div class="testi-role">Founder<br>SaaS Startup</div></div>
+        <div class="testi-quote">The revision sheet is the most underrated feature. My team actually reads it because it speaks directly to what they missed — not generic notes from a meeting. Accountability without a difficult conversation.</div>
+        <div class="testi-meta"><div class="testi-stars">★★★★★</div><div class="testi-name">Amara J.</div><div class="testi-role">Founder<br>SaaS Startup, Series Seed</div></div>
       </div>
     </div>
   </div>
@@ -540,7 +598,8 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
     <h2 class="h2 reveal" style="max-width:640px;">The questions everyone<br>asks <em>before they sign up.</em></h2>
     <div class="faq-list">
       <div class="faq-item reveal"><div class="faq-q">What do I get on the free trial?</div><p class="faq-a">The 14-day free trial gives you full access to all features — Smart Comprehension Tests, Action Items Tracker, Lifetime Roadmap, and Personalised Revision Sheets. No credit card required to start. After 14 days, continue for $30/month or cancel with one click.</p></div>
-      <div class="faq-item reveal"><div class="faq-q">What is the Anthropic API key and how complicated is it?</div><p class="faq-a">The Anthropic API powers the AI inside Teampulze. You need a free account at console.anthropic.com — setup takes under three minutes. We include a complete step-by-step guide with screenshots. New Anthropic accounts come with free credits. <strong>Your data is sent directly from your browser to Anthropic using your own key</strong> — it never touches our servers.</p></div>
+      <div class="faq-item reveal"><div class="faq-q">What exactly is Teampulze — is it an app I install?</div><p class="faq-a">Teampulze is a <strong>single HTML file</strong> that runs entirely in your browser — no installation, no server, no software to manage. You download it from our private Facebook community after signing up, open it in Chrome, Safari, Edge or Firefox, and you're ready to go. It works on any computer, anywhere.</p></div>
+      <div class="faq-item reveal"><div class="faq-q">What is the Anthropic API key and how complicated is it?</div><p class="faq-a">The Anthropic API is the AI engine that powers Teampulze's comprehension tests and revision sheets. You need a free account at <strong>console.anthropic.com</strong> — setup takes under three minutes and new accounts come with free credits, so your first sessions cost you nothing. We include a complete step-by-step guide with screenshots inside the community. Your data goes directly from your browser to Anthropic using your own key — it never touches our servers.</p></div>
       <div class="faq-item reveal"><div class="faq-q">What exactly is included in the $30/month plan?</div><p class="faq-a">Everything: <strong>(1)</strong> Smart Comprehension Tests personalised per team member. <strong>(2)</strong> Action Items Tracker with live status dashboard. <strong>(3)</strong> Lifetime Roadmap of every session and decision. <strong>(4)</strong> Personalised Revision Sheets for misaligned members. <strong>(5)</strong> Up to 25 team members. <strong>(6)</strong> Unlimited sessions. No hidden tiers or add-ons.</p></div>
       <div class="faq-item reveal"><div class="faq-q">Is $30/month worth it compared to the cost of one bad rework cycle?</div><p class="faq-a">A single rework cycle typically costs 2–3 days of a team member's time. At even modest rates, that's hundreds — often thousands — of dollars. Teampulze prevents that from happening before it starts. Most teams recover the monthly cost within the first session they run.</p></div>
       <div class="faq-item reveal"><div class="faq-q">Can I cancel anytime?</div><p class="faq-a">Yes, completely. Cancel from your account dashboard at any time — no calls, no forms, no questions. Your access continues until the end of your current billing period.</p></div>
@@ -562,6 +621,13 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
         <p class="guarantee-body">Teampulze is a working product. Open the app, paste your first meeting notes — you will have your first comprehension assessment in under 30 seconds. If the tool does not work as described, <strong>contact us and we will personally troubleshoot with you until it does.</strong> Unsatisfied within your first 30 days as a paid subscriber? We'll refund you — no arguments.</p>
       </div>
     </div>
+    <div class="community-strip reveal">
+      <div class="cs-icon">💬</div>
+      <div class="cs-content">
+        <div class="cs-title">You're not buying software and disappearing.</div>
+        <p class="cs-body">Every Teampulze user joins our private community. That's where we answer questions directly, push fixes when something breaks, and build new features based on what real users actually need. Your feedback shapes the product — and you get support from people who built it, not a ticket system.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -570,20 +636,19 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
 <div class="final-cta-wrap" id="final">
   <div class="kicker reveal" style="justify-content:center;">Start Today</div>
   <h2 class="final-headline reveal">Stop assuming.<br>Start knowing.<br><em>Your first session</em> is <span>free.</span></h2>
-  <p class="final-sub reveal">Try Teampulze free for 14 days — no credit card required. After your trial, continue for just <strong>$30 per month</strong>. Cancel anytime with one click.</p>
+  <p class="final-sub reveal">Try Teampulze free for 14 days — no credit card required. After your trial, continue for just <strong>$30 per month</strong>. Cancel anytime.</p>
   <div class="final-price-display reveal">
     <div class="final-price-big"><sup>$</sup>30</div>
     <div class="final-price-period">Per month · After 14-day free trial</div>
   </div>
-  <div class="final-trial-bar reveal">✓ 14-day free trial — no credit card required.<br><strong>Full access from day one. Cancel anytime.</strong></div>
   <div class="final-btn-wrap reveal"><a href="#" class="btn-cta-final">Start Your Free Trial →</a></div>
-  <p class="final-micro reveal">No credit card · Full access · Cancel anytime</p>
+  <p class="final-micro reveal">No credit card · HTML file delivered instantly via community · Cancel anytime</p>
   <div class="final-checklist reveal">
     <div class="fc-item"><span class="ck">✓</span> Personalised AI comprehension tests for every team member</div>
     <div class="fc-item"><span class="ck">✓</span> Action items tracker with live team status updates</div>
     <div class="fc-item"><span class="ck">✓</span> Lifetime roadmap of every decision and session</div>
     <div class="fc-item"><span class="ck">✓</span> Personalised revision sheets for misaligned members</div>
-    <div class="fc-item"><span class="ck">✓</span> Works in any browser — zero setup or onboarding</div>
+    <div class="fc-item"><span class="ck">✓</span> Single HTML file — works in any browser, zero installation</div>
     <div class="fc-item"><span class="ck">✓</span> Up to 25 team members</div>
     <div class="fc-item"><span class="ck">✓</span> Flat $30/month — no per-seat fees, ever</div>
   </div>
@@ -593,12 +658,12 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
   <div class="modal-box">
     <button class="modal-close" id="modalClose">×</button>
     <h3 class="modal-title">Start Your Free Trial</h3>
-    <p class="modal-desc">Join our community and get instant access to Teampulze. We'll send you the setup guide and your first session template. No credit card required.</p>
+    <p class="modal-desc">Enter your details below. You'll be redirected to our private Facebook community where your <strong>Teampulze HTML file and step-by-step setup guide</strong> are pinned and ready to download. The community is also where we handle support directly and ship fixes fast — based on real feedback from real users. No credit card required.</p>
     <form class="modal-form" id="trialForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="59d155d3-aa95-48ab-aa3a-b89fa50ecd99">
       <div class="form-group"><label class="form-label" for="name">Full Name</label><input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required></div>
       <div class="form-group"><label class="form-label" for="email">Email Address</label><input type="email" id="email" name="email" class="form-input" placeholder="your.email@company.com" required></div>
-      <div class="form-notice"><span class="form-notice-icon">●</span><span>By submitting, you'll be redirected to our private Facebook community where you can connect with other Teampulze users and access exclusive resources.</span></div>
+      <div class="form-notice"><span class="form-notice-icon">●</span><span>After submitting, you'll be redirected to our <strong>private Facebook group</strong> — your Teampulze HTML file is pinned at the top. The group is also your direct line to us for support, questions, and updates as we keep improving the product based on your feedback.</span></div>
       <button type="submit" class="form-submit" id="submitBtn">Join Community & Start Trial <span>→</span></button>
     </form>
   </div>
@@ -613,7 +678,7 @@ footer{background:var(--ink2);border-top:1px solid var(--hairline);padding:44px 
     <li><a href="#faq">Questions</a></li>
     <li><a href="#final">Start Free</a></li>
   </ul>
-  <div class="footer-copy">© 2025 Teampulze · BOT4ORGE AI · Teampulze.team</div>
+  <div class="footer-copy">© 2026 Teampulze · BOT4ORGE AI · Teampulze.team</div>
 </footer>
 
 <script>
@@ -630,6 +695,7 @@ const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInt
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const modal=document.getElementById('trialModal'),modalClose=document.getElementById('modalClose'),trialForm=document.getElementById('trialForm'),submitBtn=document.getElementById('submitBtn');
 const FACEBOOK_COMMUNITY_URL='https://web.facebook.com/share/g/1BB9zTbJSp/';
+const DOWNLOAD_URL='https://drive.google.com/uc?export=download&id=1HToAriOLnxQ92hC5ctxRgvfeX7yCZKUA';
 document.querySelectorAll('.btn-cta,.btn-cta-final,.nav-buy,.pc-cta').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();modal.classList.add('active');document.body.style.overflow='hidden'})});
 function closeModal(){modal.classList.remove('active');document.body.style.overflow=''}
 modalClose.addEventListener('click',closeModal);
@@ -637,7 +703,22 @@ modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('active'))closeModal()});
 trialForm.addEventListener('submit',async e=>{
   e.preventDefault();submitBtn.disabled=true;submitBtn.textContent='Processing...';
-  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(trialForm)});const d=await r.json();if(d.success){window.location.href=FACEBOOK_COMMUNITY_URL}else{throw new Error('failed')}}
+  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(trialForm)});const d=await r.json();if(d.success){
+  window.location.href=DOWNLOAD_URL;
+  setTimeout(()=>{
+    document.querySelector('.modal-form').innerHTML=`
+      <div style="text-align:center;padding:40px 0">
+        <div style="font-size:48px;margin-bottom:20px">✓</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:12px">Your file is downloading now</h3>
+        <p style="color:rgba(255,255,255,0.6);margin-bottom:32px">Open it in any browser and follow the setup guide inside.</p>
+        <div style="padding:24px;background:rgba(0,98,255,0.06);border-radius:10px;border:1px solid rgba(0,98,255,0.2)">
+          <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:16px">Want faster support and updates as we improve Teampulze?</p>
+          <a href="${FACEBOOK_COMMUNITY_URL}" target="_blank" style="display:inline-block;padding:12px 24px;background:var(--electric);color:var(--ink);border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">Join 200+ users in our private community →</a>
+        </div>
+      </div>
+    `;
+  },800);
+}else{throw new Error('failed')}}
   catch(err){submitBtn.disabled=false;submitBtn.innerHTML='Join Community & Start Trial <span>→</span>';alert('Something went wrong. Please try again.')}
 });
 </script>
